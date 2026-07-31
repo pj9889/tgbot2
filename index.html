@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NinaFun69 - Profile</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="fevi22.webp">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #311042);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container Card */
+        .card-container {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        /* Profile Image Wrapper */
+        .profile-wrapper {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 15px auto;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #8b5cf6;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Active Badge */
+        .active-status {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 18px;
+            height: 18px;
+            background-color: #22c55e;
+            border: 3px solid #fff;
+            border-radius: 50%;
+        }
+
+        /* Profile Info */
+        .profile-name {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .verified-badge {
+            color: #1d9bf0;
+            font-size: 18px;
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            color: #ffffff;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.6);
+        }
+
+        /* Step 2 Styles */
+        .step-2 {
+            display: none;
+        }
+
+        .user-highlight {
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .notice-text {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .instruction-title {
+            color: #d97706;
+            font-size: 17px;
+            font-weight: 700;
+            margin: 15px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .instruction-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .instruction-list li {
+            font-size: 13.5px;
+            color: #334155;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .instruction-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .instruction-list i {
+            color: #16a34a;
+            font-size: 16px;
+            margin-top: 2px;
+        }
+
+        /* Overlay & Spinner */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ec4899;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Overlay -->
+    <div class="overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Main Card Container -->
+    <div class="card-container">
+        
+        <!-- STEP 1: Initial Profile View -->
+        <div id="step1">
+            <div class="profile-wrapper">
+                <img src="prx.webp" alt="NinaFun69 Profile" class="profile-img">
+                <div class="active-status" title="Online"></div>
+            </div>
+            
+            <div class="profile-name">
+                NinaFun69 
+                <i class="fa-solid fa-circle-check verified-badge" title="Verified Profile"></i>
+            </div>
+
+            <button class="btn" onclick="goToStep2()">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+        </div>
+
+        <!-- STEP 2: Instruction & Signup Redirect -->
+        <div id="step2" class="step-2">
+            <div class="profile-wrapper" style="width: 80px; height: 80px; margin-bottom: 10px;">
+                <img src="prx.webp" alt="NinaFun69 Profile" class="profile-img">
+                <div class="active-status"></div>
+            </div>
+
+            <div class="profile-name" style="font-size: 18px; margin-bottom: 15px;">
+                NinaFun69 
+                <i class="fa-solid fa-circle-check verified-badge" style="font-size: 15px;"></i>
+            </div>
+
+            <p class="notice-text">
+                You need a free account to send a message to <span class="user-highlight">NinaFun69</span>
+            </p>
+
+            <div class="instruction-title">How To Free Sign Up?</div>
+
+            <ul class="instruction-list">
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Click the button below and complete all required pages.</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Sign up with your email address and verify it.</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Upgrade your profile for lifetime free access.</span>
+                </li>
+            </ul>
+
+            <!-- REPLACE LINK BELOW WITH YOUR AFFILIATE LINK -->
+            <button class="btn" onclick="redirectToAffiliate('https://tinyurl.com/3casb5vs')">
+                <i class="fa-solid fa-user-plus"></i> Complete Free Profile
+            </button>
+        </div>
+
+    </div>
+
+    <script>
+        const overlay = document.getElementById('loadingOverlay');
+
+        // Step 1 -> Step 2 with Loading Simulation
+        function goToStep2() {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                document.getElementById('step1').style.display = 'none';
+                document.getElementById('step2').style.display = 'block';
+            }, 1000); // 1 Second Buffering
+        }
+
+        // Redirect to Affiliate Link with Loading Simulation
+        function redirectToAffiliate(affiliateUrl) {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = affiliateUrl;
+            }, 1000); // 1 Second Buffering
+        }
+    </script>
+</body>
+</html>
