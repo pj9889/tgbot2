@@ -226,7 +226,7 @@
             </button>
         </div>
 
-        <!-- STEP 2: Instruction & Signup Redirect -->
+        <!-- STEP 2: Instruction & Signup Link -->
         <div id="step2" class="step-2">
             <div class="profile-wrapper" style="width: 80px; height: 80px; margin-bottom: 10px;">
                 <img src="prx.webp" alt="NinaFun69 Profile" class="profile-img">
@@ -259,9 +259,10 @@
                 </li>
             </ul>
 
-            <button class="btn" onclick="redirectToAffiliate()">
+            <!-- আপনার লিংকটি নিচে href="#" এর জায়গায় বসান -->
+            <a href="https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=bot9&cid=bot9" class="btn">
                 <i class="fa-solid fa-user-plus"></i> Complete Free Profile
-            </button>
+            </a>
         </div>
 
     </div>
@@ -269,66 +270,13 @@
     <script>
         const overlay = document.getElementById('loadingOverlay');
 
-        // Target Links Configuration
-        const primaryLink = "https://paysale.g2afse.com/click?pid=125904&offer_id=7684&sub1=xbot";
-        const fallbackLink = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=sm33&cid=sm33";
-        const allowedCountries = ["AU", "US", "GB", "IE", "CA"]; // Australia, USA, UK, Ireland, Canada
-
-        let userCountry = "";
-        let clickCount = 0;
-
-        // Page load er sathe sathe Country Check korbe
-        window.addEventListener('DOMContentLoaded', () => {
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    userCountry = data.country_code ? data.country_code.toUpperCase() : "";
-                })
-                .catch(error => {
-                    console.log('IP Location fetch failed, defaulting logic.');
-                });
-        });
-
-        // Step 1 -> Step 2 with Loading Simulation
+        // Step 1 -> Step 2 Transitions
         function goToStep2() {
             overlay.style.display = 'flex';
             setTimeout(() => {
                 overlay.style.display = 'none';
                 document.getElementById('step1').style.display = 'none';
                 document.getElementById('step2').style.display = 'block';
-            }, 1000);
-        }
-
-        // Smart Link Redirection Logic
-        function redirectToAffiliate() {
-            clickCount++;
-            let destinationUrl = fallbackLink;
-
-            // Target country visitor check
-            const isTargetCountry = allowedCountries.includes(userCountry);
-
-            if (isTargetCountry) {
-                // Click Pattern logic:
-                // 1st click: Primary
-                // 2nd click: Primary
-                // 3rd click: Fallback
-                // 4th click: Fallback
-                // 5th click: Primary ... Pattern continues
-                
-                let cyclePos = clickCount % 4;
-                if (cyclePos === 1 || cyclePos === 2) {
-                    destinationUrl = primaryLink;
-                } else {
-                    destinationUrl = fallbackLink;
-                }
-            } else {
-                // Target Country baade baki sob country er jonno sorasori Fallback Link
-                destinationUrl = fallbackLink;
-            }
-
-            overlay.style.display = 'flex';
-            setTimeout(() => {
-                window.location.href = destinationUrl;
             }, 1000);
         }
     </script>
