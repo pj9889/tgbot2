@@ -253,16 +253,12 @@
                     <i class="fa-solid fa-circle-check"></i>
                     <span>Sign up with your email address and verify it.</span>
                 </li>
-                <li>
-                    <i class="fa-solid fa-circle-check"></i>
-                    <span>Upgrade your profile for lifetime free access.</span>
-                </li>
             </ul>
 
-            <!-- আপনার লিংকটি নিচে href="#" এর জায়গায় বসান -->
-            <a href="https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=bot9&cid=bot9" class="btn">
+            <!-- Complete Free Profile Button with 1 Second Fake Buffering -->
+            <button class="btn" onclick="redirectToAffiliate()">
                 <i class="fa-solid fa-user-plus"></i> Complete Free Profile
-            </a>
+            </button>
         </div>
 
     </div>
@@ -270,13 +266,21 @@
     <script>
         const overlay = document.getElementById('loadingOverlay');
 
-        // Step 1 -> Step 2 Transitions
+        // Step 1 -> Step 2 Transition
         function goToStep2() {
             overlay.style.display = 'flex';
             setTimeout(() => {
                 overlay.style.display = 'none';
                 document.getElementById('step1').style.display = 'none';
                 document.getElementById('step2').style.display = 'block';
+            }, 1000);
+        }
+
+        // Complete Free Profile -> Redirect with 1 sec Buffering
+        function redirectToAffiliate() {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=bot9&cid=bot9";
             }, 1000);
         }
     </script>
