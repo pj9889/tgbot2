@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NinaFun69 - Profile</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="fevi22.webp">
-    
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -208,7 +208,7 @@
 
     <!-- Main Card Container -->
     <div class="card-container">
-        
+
         <!-- STEP 1: Initial Profile View -->
         <div id="step1">
             <div class="profile-wrapper">
@@ -255,7 +255,7 @@
                 </li>
             </ul>
 
-            <!-- Complete Free Profile Button with 1 Second Fake Buffering -->
+            <!-- Complete Free Profile Button with 1 Second Fake Buffering & Alternate Link Redirect -->
             <button class="btn" onclick="redirectToAffiliate()">
                 <i class="fa-solid fa-user-plus"></i> Complete Free Profile
             </button>
@@ -276,11 +276,32 @@
             }, 1000);
         }
 
-        // Complete Free Profile -> Redirect with 1 sec Buffering
+        // Complete Free Profile -> Alternate Redirects with 1 sec Buffering
         function redirectToAffiliate() {
             overlay.style.display = 'flex';
+            
+            // Your two affiliate links
+            const link1 = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=newbot1&cid=newbot1";
+            const link2 = "https://paysale.g2afse.com/click?pid=125904&offer_id=10401&sub1=newbtt11";
+
+            // Track click counts per user browser
+            let clickCount = localStorage.getItem('user_click_count');
+            
+            if (!clickCount) {
+                clickCount = 1;
+            } else {
+                clickCount = parseInt(clickCount) + 1;
+            }
+
+            localStorage.setItem('user_click_count', clickCount);
+
+            // Odd click (1st, 3rd, 5th...) -> Link 1 | Even click (2nd, 4th, 6th...) -> Link 2
             setTimeout(() => {
-                window.location.href = "https://c4tpbrw.balancedhonesty.org/wccm5xm?s1=tgbotttttttt&cid=botttttttt";
+                if (clickCount % 2 !== 0) {
+                    window.location.href = link1;
+                } else {
+                    window.location.href = link2;
+                }
             }, 1000);
         }
     </script>
