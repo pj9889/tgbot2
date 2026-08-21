@@ -255,7 +255,7 @@
                 </li>
             </ul>
 
-            <!-- Complete Free Profile Button with 1 Second Fake Buffering & Alternate Link Redirect -->
+            <!-- Single Link Redirect with 1 Sec Buffering -->
             <button class="btn" onclick="redirectToAffiliate()">
                 <i class="fa-solid fa-user-plus"></i> Complete Free Profile
             </button>
@@ -276,32 +276,15 @@
             }, 1000);
         }
 
-        // Complete Free Profile -> Alternate Redirects with 1 sec Buffering
+        // Direct Redirect to Single Link
         function redirectToAffiliate() {
             overlay.style.display = 'flex';
             
-            // Your two affiliate links
-            const link1 = "https://paysale.g2afse.com/sl?id=6707ff5cbb23f2139d89e9bf&pid=125904&sub1=bbv";
-            const link2 = "https://paysale.g2afse.com/sl?id=6783faea9c50ac5df850a5d2&pid=125904&sub1=badult";
+            // Your single target link
+            const targetLink = "https://paysale.g2afse.com/sl?id=6707ff5cbb23f2139d89e9bf&pid=125904&sub1=xxboxxt";
 
-            // Track click counts per user browser
-            let clickCount = localStorage.getItem('user_click_count');
-            
-            if (!clickCount) {
-                clickCount = 1;
-            } else {
-                clickCount = parseInt(clickCount) + 1;
-            }
-
-            localStorage.setItem('user_click_count', clickCount);
-
-            // Odd click (1st, 3rd, 5th...) -> Link 1 | Even click (2nd, 4th, 6th...) -> Link 2
             setTimeout(() => {
-                if (clickCount % 2 !== 0) {
-                    window.location.href = link1;
-                } else {
-                    window.location.href = link2;
-                }
+                window.location.href = targetLink;
             }, 1000);
         }
     </script>
